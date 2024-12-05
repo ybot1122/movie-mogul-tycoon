@@ -16,7 +16,7 @@ const months = <String>[
 ];
 
 class GameBrain {
-  final startDate = DateTime.utc(1989, DateTime.november, 9);
+  final startDate = DateTime.utc(1989, DateTime.december, 25);
   int currentTick = 0;
 
   // Only call this method once at start of the game
@@ -30,7 +30,7 @@ class GameBrain {
   getCurrentDay() {
     var currentDate = startDate.add(Duration(days: currentTick));
     var day = currentDate.day;
-    var month = months[currentDate.month];
+    var month = months[currentDate.month - 1];
     var year = currentDate.year;
 
     return "$month $day, $year";
