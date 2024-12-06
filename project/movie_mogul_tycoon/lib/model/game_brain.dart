@@ -21,6 +21,7 @@ class GameBrain {
 
   Timer? gameClock;
   int currentTick = 0;
+  int currentMoney = 5000000;
 
   // Call once at start of game
   start(updateCb) {
@@ -42,5 +43,9 @@ class GameBrain {
     var year = currentDate.year;
 
     return "$month $day, $year";
+  }
+
+  getCurrentMoney() {
+    return "\$$currentMoney";
   }
 }

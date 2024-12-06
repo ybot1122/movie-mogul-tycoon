@@ -16,6 +16,7 @@ class _GameScreenState extends State<GameScreen> {
   var gb = GameBrain();
 
   late String currentDay;
+  late String currentMoney;
 
   timerUpdate() {
     setState(() {
@@ -32,6 +33,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     currentDay = gb.getCurrentDay();
+    currentMoney = gb.getCurrentMoney();
     gb.start(timerUpdate);
   }
 
@@ -42,8 +44,10 @@ class _GameScreenState extends State<GameScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(currentDay),
+              Text(currentMoney),
             ],
           ),
           Row(children: [
