@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:movie_mogul_tycoon/model/game_brain.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({super.key});
+  const GameScreen({super.key, required this.exitGame});
+
+  final void Function() exitGame;
 
   @override
   State<GameScreen> createState() {
@@ -21,6 +23,11 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
+  exitGame() {
+    gb.end();
+    widget.exitGame();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -35,8 +42,20 @@ class _GameScreenState extends State<GameScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
-            children: [Text(currentDay)],
-          )
+            children: [
+              Text(currentDay),
+            ],
+          ),
+          Row(children: [
+            OutlinedButton.icon(
+              onPressed: exitGame,
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              icon: const Icon(Icons.arrow_left),
+              label: const Text("Exit Game"),
+            )
+          ])
         ],
       ),
     );

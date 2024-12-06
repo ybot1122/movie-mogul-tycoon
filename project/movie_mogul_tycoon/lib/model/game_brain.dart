@@ -1,5 +1,6 @@
 import 'dart:async';
 
+const oneSecond = Duration(seconds: 1);
 const months = <String>[
   'Jan',
   'Feb',
@@ -17,14 +18,21 @@ const months = <String>[
 
 class GameBrain {
   final startDate = DateTime.utc(1989, DateTime.december, 25);
+
+  Timer? gameClock;
   int currentTick = 0;
 
-  // Only call this method once at start of the game
+  // Call once at start of game
   start(updateCb) {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    gameClock = Timer.periodic(oneSecond, (timer) {
       currentTick += 1;
       updateCb();
     });
+  }
+
+  // Call once to end the game
+  end() {
+    gameClock?.cancel();
   }
 
   getCurrentDay() {
