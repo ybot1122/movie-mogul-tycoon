@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:movie_mogul_tycoon/model/movie_proposal.dart';
+
 const oneSecond = Duration(seconds: 1);
 const months = <String>[
   'Jan',
@@ -14,6 +16,23 @@ const months = <String>[
   'Oct',
   'Nov',
   'Dec',
+];
+final movieProposals = <MovieProposal>[
+  MovieProposal(
+    budget: 250000,
+    title: "Mario World Wonder",
+    releaseDate: DateTime(1990, DateTime.january, 1),
+  ),
+  MovieProposal(
+    budget: 350000,
+    title: "Big Time Boom Boom",
+    releaseDate: DateTime(1990, DateTime.february, 1),
+  ),
+  MovieProposal(
+    budget: 500000,
+    title: "This Is",
+    releaseDate: DateTime(1990, DateTime.march, 1),
+  ),
 ];
 
 class GameBrain {
