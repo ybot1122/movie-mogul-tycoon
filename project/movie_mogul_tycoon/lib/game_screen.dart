@@ -19,10 +19,43 @@ class _GameScreenState extends State<GameScreen> {
   late String currentDay;
   late String currentMoney;
 
-  timerUpdate() {
+  void Function()? movieProposalComplete;
+
+  gameClockUpdated() {
     setState(() {
       currentDay = gb.getCurrentDay();
     });
+  }
+
+  startMovieProposal() {
+    setState(() {
+      movieProposalComplete = () {
+        print("movie proposal done");
+      };
+    });
+
+    showModalBottomSheet<void>(
+      // context and builder are
+      // required properties in this widget
+      context: context,
+      builder: (BuildContext context) {
+        // we set up a container inside which
+        // we create center column and display text
+
+        // Returning SizedBox instead of a Container
+        return const SizedBox(
+          height: 200,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Text('GeeksforGeeks'),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   exitGame() {
@@ -35,7 +68,9 @@ class _GameScreenState extends State<GameScreen> {
     super.initState();
     currentDay = gb.getCurrentDay();
     currentMoney = gb.getCurrentMoney();
-    gb.start(timerUpdate);
+    gb.start(
+        gameClockUpdated: gameClockUpdated,
+        startMovieProposal: startMovieProposal);
   }
 
   @override
