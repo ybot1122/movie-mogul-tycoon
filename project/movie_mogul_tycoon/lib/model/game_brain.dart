@@ -18,7 +18,12 @@ class GameBrain {
   // Call once at start of game
   start(
       {required void Function() gameClockUpdated,
-      required dynamic Function({required MovieProposal movieProposal})
+      required dynamic Function(
+              {required MovieProposal movieProposal,
+              required dynamic Function(
+                      {required bool isGreenlit,
+                      required MovieProposal movieProposal})
+                  finishMovieProposal})
           startMovieProposal}) {
     gameClock = Timer.periodic(oneSecond, (timer) {
       if (gameClockPaused) return;
@@ -35,11 +40,20 @@ class GameBrain {
       if (mps.isNotEmpty) {
         // make movie proposal
         MovieProposal mp = mps.first;
-        String title = mp.title;
-        startMovieProposal(movieProposal: mp);
-        print('Proposing movie: $title');
+        startMovieProposal(
+            movieProposal: mp, finishMovieProposal: _finishMovieProposal);
+        gameClockPaused = true;
       }
     });
+  }
+
+  _finishMovieProposal(
+      {required bool isGreenlit, required MovieProposal movieProposal}) {
+    gameClockPaused = false;
+
+    if (isGreenlit) {
+      currentMoney -= movieProposal.budget;
+    } else {}
   }
 
   // Call once to end the game

@@ -21,25 +21,23 @@ class _GameScreenState extends State<GameScreen> {
   late String currentDay;
   late String currentMoney;
 
-  void Function()? movieProposalComplete;
-
   gameClockUpdated() {
     setState(() {
       currentDay = gb.getCurrentDay();
     });
   }
 
-  startMovieProposal({required MovieProposal movieProposal}) {
-    setState(() {
-      movieProposalComplete = () {
-        print("movie proposal done");
-      };
-    });
-
+  startMovieProposal(
+      {required MovieProposal movieProposal,
+      required dynamic Function(
+              {required bool isGreenlit, required MovieProposal movieProposal})
+          finishMovieProposal}) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return MovieProposalModal(movieProposal: movieProposal);
+        return MovieProposalModal(
+            movieProposal: movieProposal,
+            finishMovieProposal: finishMovieProposal);
       },
     );
   }
