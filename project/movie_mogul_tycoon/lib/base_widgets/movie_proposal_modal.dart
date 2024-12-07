@@ -48,12 +48,15 @@ class MovieProposalModal extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
               Row(
                 children: [
+                  const Spacer(),
                   OutlinedButton.icon(
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: GAME_COLORS_BLACK,
+                      foregroundColor: GAME_COLORS_GREEN,
+                      side: const BorderSide(width: 2),
                     ),
                     icon: const Icon(Icons.check),
                     label: const Text(
@@ -64,8 +67,23 @@ class MovieProposalModal extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(),
-                  Text('Reject')
+                  const SizedBox(width: 10),
+                  OutlinedButton.icon(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: GAME_COLORS_RED,
+                      side: const BorderSide(width: 2),
+                    ),
+                    icon: const Icon(Icons.check),
+                    label: const Text(
+                      'Reject',
+                      style: TextStyle(
+                        color: GAME_COLORS_RED,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
                 ],
               )
             ],
