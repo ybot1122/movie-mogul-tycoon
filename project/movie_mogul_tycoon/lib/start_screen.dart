@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_mogul_tycoon/base_widgets/menu_button.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startGame, {super.key});
@@ -19,16 +20,11 @@ class StartScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          OutlinedButton.icon(
-            onPressed: () {
-              startGame();
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.black,
-            ),
-            icon: const Icon(Icons.arrow_right_alt),
-            label: const Text("Start Game!"),
-          )
+          MenuButton(
+            onPressed: startGame,
+            text: "Start Game!",
+            icon: Icons.arrow_right_alt,
+          ),
         ],
       ),
     );

@@ -51,7 +51,11 @@ class _ScreenManagerState extends State<_ScreenManager> {
                 Color.fromARGB(255, 184, 150, 242)
               ], begin: Alignment.topLeft, end: Alignment.bottomRight),
             ),
-            child: screenWidget),
+            child: SafeArea(
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: screenWidget,
+            ))),
       ),
     );
   }

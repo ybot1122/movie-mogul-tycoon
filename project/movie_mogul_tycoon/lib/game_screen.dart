@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_mogul_tycoon/base_widgets/menu_button.dart';
 import 'package:movie_mogul_tycoon/model/game_brain.dart';
 
 class GameScreen extends StatefulWidget {
@@ -50,20 +51,16 @@ class _GameScreenState extends State<GameScreen> {
               Text(currentMoney),
             ],
           ),
-          const Expanded(
-              child: Row(
-            children: [],
-          )),
-          Row(children: [
-            OutlinedButton.icon(
+          const Spacer(),
+          Row(mainAxisSize: MainAxisSize.max, children: [
+            const Spacer(),
+            MenuButton(
+              text: "Exit Game",
+              icon: Icons.arrow_left,
               onPressed: exitGame,
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
-              icon: const Icon(Icons.arrow_left),
-              label: const Text("Exit Game"),
-            )
-          ])
+            ),
+            const Spacer(),
+          ]),
         ],
       ),
     );
