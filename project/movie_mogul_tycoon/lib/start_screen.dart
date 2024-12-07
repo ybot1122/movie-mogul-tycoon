@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mogul_tycoon/base_widgets/menu_button.dart';
+import 'package:movie_mogul_tycoon/constants/game_colors.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startGame, {super.key});
@@ -15,7 +16,7 @@ class StartScreen extends StatelessWidget {
           const Text(
             "Movie Mogul Tycoon!",
             style: TextStyle(
-              color: Colors.black,
+              color: GAME_COLORS_BLACK,
               fontSize: 24,
             ),
           ),
