@@ -50,6 +50,10 @@ class _GameScreenState extends State<GameScreen> {
               Text(currentMoney),
             ],
           ),
+          const Expanded(
+              child: Row(
+            children: [],
+          )),
           Row(children: [
             OutlinedButton.icon(
               onPressed: exitGame,
