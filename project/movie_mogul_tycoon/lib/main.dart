@@ -40,7 +40,7 @@ class _ScreenManagerState extends State<_ScreenManager> {
   Widget build(BuildContext context) {
     final screenWidget = activeScreen == 'start-screen'
         ? StartScreen(switchScreen)
-        : const GameScreen();
+        : GameScreen(exitGame: switchScreen);
 
     return MaterialApp(
       home: Scaffold(
