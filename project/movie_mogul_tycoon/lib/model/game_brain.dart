@@ -10,8 +10,6 @@ class GameBrain {
   final startDate = DateTime.utc(1989, DateTime.december, 25);
   var currentDate = DateTime.utc(1989, DateTime.december, 25);
 
-  late final void Function() startMovieProposal;
-
   Timer? gameClock;
   int currentTick = 0;
   int currentMoney = 5000000;
@@ -20,7 +18,8 @@ class GameBrain {
   // Call once at start of game
   start(
       {required void Function() gameClockUpdated,
-      required void Function() startMovieProposal}) {
+      required dynamic Function({required MovieProposal movieProposal})
+          startMovieProposal}) {
     gameClock = Timer.periodic(oneSecond, (timer) {
       if (gameClockPaused) return;
 
@@ -37,6 +36,7 @@ class GameBrain {
         // make movie proposal
         MovieProposal mp = mps.first;
         String title = mp.title;
+        startMovieProposal(movieProposal: mp);
         print('Proposing movie: $title');
       }
     });

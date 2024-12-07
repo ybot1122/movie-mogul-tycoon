@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mogul_tycoon/base_widgets/menu_button.dart';
+import 'package:movie_mogul_tycoon/base_widgets/movie_proposal_modal.dart';
 import 'package:movie_mogul_tycoon/model/game_brain.dart';
+import 'package:movie_mogul_tycoon/model/movie_proposal.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key, required this.exitGame});
@@ -27,7 +29,7 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  startMovieProposal() {
+  startMovieProposal({required MovieProposal movieProposal}) {
     setState(() {
       movieProposalComplete = () {
         print("movie proposal done");
@@ -35,25 +37,9 @@ class _GameScreenState extends State<GameScreen> {
     });
 
     showModalBottomSheet<void>(
-      // context and builder are
-      // required properties in this widget
       context: context,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
-
-        // Returning SizedBox instead of a Container
-        return const SizedBox(
-          height: 200,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text('GeeksforGeeks'),
-              ],
-            ),
-          ),
-        );
+        return MovieProposalModal(movieProposal: movieProposal);
       },
     );
   }
