@@ -16,8 +16,8 @@ class MovieProposalModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var title = movieProposal.title;
-    var budget = movieProposal.budget;
-    var releaseDate = movieProposal.releaseDate;
+    var budget = movieProposal.getBudgetAmount();
+    var releaseDate = movieProposal.getReleaseDate();
 
     return SizedBox(
       height: 200,
@@ -37,7 +37,7 @@ class MovieProposalModal extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Budget is \$$budget',
+                    'Budget is $budget',
                   ),
                 ],
               ),
