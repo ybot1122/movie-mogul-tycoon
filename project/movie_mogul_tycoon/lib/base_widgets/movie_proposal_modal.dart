@@ -20,27 +20,43 @@ class MovieProposalModal extends StatelessWidget {
     var releaseDate = movieProposal.getReleaseDate();
 
     return SizedBox(
-      height: 200,
+      height: 300,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Text(
-                    'MOVIE PROPOSAL for $title',
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Budget is $budget',
-                  ),
-                ],
-              ),
+              const Row(children: [
+                Spacer(),
+                Text('MOVIE PROPOSAL',
+                    style: TextStyle(
+                      fontSize: 18,
+                    )),
+                Spacer(),
+              ]),
+              const SizedBox(height: 20),
+              Row(children: [
+                const Spacer(),
+                Text(title,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const Spacer(),
+              ]),
+              const SizedBox(height: 20),
+              Row(children: [
+                const Spacer(),
+                const Text("Budget:"),
+                const SizedBox(width: 5),
+                Text(budget,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
+                const Spacer(),
+              ]),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Text(
