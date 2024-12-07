@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
 }
 
 class _ScreenManager extends StatefulWidget {
-  const _ScreenManager({super.key});
+  const _ScreenManager();
 
   @override
   State<_ScreenManager> createState() {
