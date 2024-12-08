@@ -34,6 +34,7 @@ class _GameScreenState extends State<GameScreen> {
           finishMovieProposal}) {
     showModalBottomSheet<void>(
       context: context,
+      isDismissible: false,
       builder: (BuildContext context) {
         return MovieProposalModal(
             movieProposal: movieProposal,
