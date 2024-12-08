@@ -54,7 +54,10 @@ class MovieProposalModal extends StatelessWidget {
                 children: [
                   const Spacer(),
                   OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      finishMovieProposal(
+                          isGreenlit: true, movieProposal: movieProposal);
+                    },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: GAME_COLORS_GREEN,
                       side: const BorderSide(width: 2),
@@ -70,7 +73,10 @@ class MovieProposalModal extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      finishMovieProposal(
+                          isGreenlit: true, movieProposal: movieProposal);
+                    },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: GAME_COLORS_RED,
                       side: const BorderSide(width: 2),

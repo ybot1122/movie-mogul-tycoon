@@ -67,8 +67,8 @@ class _GameScreenState extends State<GameScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(currentDay),
-              Text(currentMoney),
+              _InfoText(text: currentDay),
+              _InfoText(text: currentMoney),
             ],
           ),
           const Spacer(),
@@ -83,6 +83,20 @@ class _GameScreenState extends State<GameScreen> {
           ]),
         ],
       ),
+    );
+  }
+}
+
+class _InfoText extends StatelessWidget {
+  const _InfoText({super.key, required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: const TextStyle(fontSize: 28),
     );
   }
 }

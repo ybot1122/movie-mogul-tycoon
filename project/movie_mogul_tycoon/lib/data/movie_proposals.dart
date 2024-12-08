@@ -18,7 +18,7 @@ final movieProposals = <MovieProposal>[
   MovieProposal(
     budget: 500000,
     boxOfficeReturn: 1000000,
-    title: "This Is",
+    title: "When The Angels Sing",
     releaseDate: DateTime(1990, DateTime.march, 1),
     proposalDate: DateTime(1990, DateTime.january, 30),
   ),
