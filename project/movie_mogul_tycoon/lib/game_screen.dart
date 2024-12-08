@@ -24,6 +24,7 @@ class _GameScreenState extends State<GameScreen> {
   gameClockUpdated() {
     setState(() {
       currentDay = gb.getCurrentDay();
+      currentMoney = gb.getCurrentMoney();
     });
   }
 

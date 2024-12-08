@@ -5,6 +5,7 @@ import 'package:movie_mogul_tycoon/constants/one_second.dart';
 import 'package:movie_mogul_tycoon/data/movie_proposals.dart';
 import 'package:movie_mogul_tycoon/model/movie_proposal.dart';
 import 'package:movie_mogul_tycoon/utils/date_time_to_readable.dart';
+import 'package:movie_mogul_tycoon/utils/int_to_readable_currency.dart';
 
 class GameBrain {
   final startDate = DateTime.utc(1989, DateTime.december, 25);
@@ -66,6 +67,6 @@ class GameBrain {
   }
 
   getCurrentMoney() {
-    return "\$$currentMoney";
+    return intToReadableCurrency(currentMoney);
   }
 }
