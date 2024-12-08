@@ -20,7 +20,7 @@ class MovieProposalModal extends StatelessWidget {
     var releaseDate = movieProposal.getReleaseDate();
 
     return SizedBox(
-      height: 300,
+      height: 350,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -46,24 +46,9 @@ class MovieProposalModal extends StatelessWidget {
                 const Spacer(),
               ]),
               const SizedBox(height: 20),
-              Row(children: [
-                const Spacer(),
-                const Text("Budget:"),
-                const SizedBox(width: 5),
-                Text(budget,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    )),
-                const Spacer(),
-              ]),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Text(
-                    'Release Date is $releaseDate',
-                  ),
-                ],
-              ),
+              _InfoRow(text: budget, label: "Budget"),
+              const SizedBox(height: 5),
+              _InfoRow(text: releaseDate, label: "Release Date"),
               const SizedBox(height: 20),
               Row(
                 children: [
@@ -106,6 +91,28 @@ class MovieProposalModal extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _InfoRow extends StatelessWidget {
+  const _InfoRow({super.key, required this.text, required this.label});
+
+  final String label;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+      child: Row(children: [
+        Text("$label:"),
+        const SizedBox(width: 5),
+        Text(text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
+      ]),
     );
   }
 }
