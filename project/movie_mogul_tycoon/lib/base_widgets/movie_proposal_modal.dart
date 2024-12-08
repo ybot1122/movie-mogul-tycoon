@@ -96,7 +96,7 @@ class MovieProposalModal extends StatelessWidget {
 }
 
 class _InfoRow extends StatelessWidget {
-  const _InfoRow({super.key, required this.text, required this.label});
+  const _InfoRow({required this.text, required this.label});
 
   final String label;
   final String text;

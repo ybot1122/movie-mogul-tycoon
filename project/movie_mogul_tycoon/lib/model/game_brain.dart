@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:movie_mogul_tycoon/constants/one_second.dart';
-import 'package:movie_mogul_tycoon/data/months.dart';
 import 'package:movie_mogul_tycoon/data/movie_proposals.dart';
 import 'package:movie_mogul_tycoon/model/movie_proposal.dart';
 import 'package:movie_mogul_tycoon/utils/date_time_to_readable.dart';
