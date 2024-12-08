@@ -38,7 +38,13 @@ class _GameScreenState extends State<GameScreen> {
       builder: (BuildContext context) {
         return MovieProposalModal(
             movieProposal: movieProposal,
-            finishMovieProposal: finishMovieProposal);
+            finishMovieProposal: (
+                {required bool isGreenlit,
+                required MovieProposal movieProposal}) {
+              Navigator.pop(context);
+              finishMovieProposal(
+                  isGreenlit: isGreenlit, movieProposal: movieProposal);
+            });
       },
     );
   }
